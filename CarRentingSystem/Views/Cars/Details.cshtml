@@ -1,0 +1,21 @@
+﻿@model CarDetailsServiceModel
+
+<div class="col-md-6 offset-3">
+    <h2>@Model.Brand @Model.Model</h2>
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="@Model.ImageUrl" class="img-fluid rounded-start" alt="@Model.Brand @Model.Model">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Brand @Model.Model</h5>
+                    <p class="card-text"><strong>Year:</strong> @Model.Year</p>
+                    <p class="card-text"><strong>Price per day:</strong> @Model.PricePerDay.ToString("C")</p>
+                    <p class="card-text"><strong>Description:</strong> @Model.Description</p>   
+                    <a asp-controller="Rent" asp-action="Create" asp-route-carId="@Model.Id" class="btn btn-success">Rent this car</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+@model CarRentingSystem.Controllers.RentController.RentInputModel
+
+@{
+    ViewData["Title"] = "Rent Car";
+}
+
+<h2>Rent @Model.CarDescription</h2>
+
+<div>
+    <p>Price per day: @Model.PricePerDay.ToString("C")</p>
+
+    <form asp-action="Create" method="post">
+        <input type="hidden" asp-for="CarId" />
+        <div class="form-group">
+            <label asp-for="StartDate"></label>
+            <input asp-for="StartDate" class="form-control" type="date" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Days"></label>
+            <input asp-for="Days" class="form-control" type="number" min="1" />
+        </div>
+        <button type="submit" class="btn btn-primary">Rent</button>
+    </form>
+</div>

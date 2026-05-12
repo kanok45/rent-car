@@ -1,0 +1,31 @@
+@model IEnumerable<CarRentingSystem.Services.Rentals.Models.RentalServiceModel>
+
+@{
+    ViewBag.Title = "My Rentals";
+}
+
+<h2>My Rentals</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Price</th>
+            <th>Approved</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.CarTitle</td>
+                <td>@r.StartDate.ToShortDateString()</td>
+                <td>@r.EndDate.ToShortDateString()</td>
+                <td>@r.TotalPrice.ToString("C")</td>
+                <td>@(r.IsApproved ? "Yes" : "Pending")</td>
+            </tr>
+        }
+    </tbody>
+</table>
